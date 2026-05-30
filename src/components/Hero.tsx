@@ -18,7 +18,7 @@ export default function Hero() {
           width={160}
           height={160}
           priority
-          className="mt-8"
+          className="mt-8 h-auto"
         />
 
         <h1 className="mt-8 max-w-5xl text-5xl font-extrabold leading-tight text-blue-900 md:text-7xl">
@@ -36,24 +36,27 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-wrap justify-center gap-4">
 
-          <button className="rounded-xl bg-blue-900 px-8 py-4 text-white shadow-lg hover:bg-blue-800">
+          <a
+            href="#contact"
+            className="rounded-xl bg-blue-900 px-8 py-4 text-white shadow-lg hover:bg-blue-800"
+          >
             Get Free Consultation
-          </button>
+          </a>
 
-          <button className="rounded-xl border border-blue-900 px-8 py-4 text-blue-900 hover:bg-blue-50">
+          <a
+            href="#services"
+            className="rounded-xl border border-blue-900 px-8 py-4 text-blue-900 hover:bg-blue-50"
+          >
             View Services
-          </button>
+          </a>
 
         </div>
 
         <div className="mt-14 flex flex-wrap justify-center gap-8 text-sm font-medium text-gray-700">
 
           <div>✓ Website Development</div>
-
           <div>✓ Mobile App Development</div>
-
           <div>✓ AI Chatbots</div>
-
           <div>✓ Business Automation</div>
 
         </div>

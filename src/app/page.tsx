@@ -8,6 +8,8 @@ import Process from "../components/Process";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import WhatsAppButton from "../components/WhatsAppButton";
+import ChatAssistant from "../components/ChatAssistant";
 
 export default function Home() {
   return (
@@ -22,6 +24,8 @@ export default function Home() {
       <About />
       <Contact />
       <Footer />
+      <ChatAssistant />
+      <WhatsAppButton />
     </main>
   );
 }

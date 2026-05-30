@@ -7,7 +7,7 @@ export default function Footer() {
 
           <div>
             <h3 className="text-2xl font-bold">
-              Kangiten Softwares
+              Kangiten Software
             </h3>
 
             <p className="mt-4 text-blue-100">
@@ -18,47 +18,105 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-lg">
+            <h4 className="text-lg font-semibold">
               Services
             </h4>
 
             <ul className="mt-4 space-y-2 text-blue-100">
-              <li>Website Development</li>
-              <li>Mobile App Development</li>
-              <li>AI Chatbots</li>
-              <li>AI Voice Agents</li>
-              <li>Business Automation</li>
+              <li>
+                <a href="/services">
+                  Website Development
+                </a>
+              </li>
+
+              <li>
+                <a href="/services">
+                  Mobile App Development
+                </a>
+              </li>
+
+              <li>
+                <a href="/services">
+                  AI Chatbots
+                </a>
+              </li>
+
+              <li>
+                <a href="/services">
+                  AI Voice Agents
+                </a>
+              </li>
+
+              <li>
+                <a href="/services">
+                  Business Automation
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-lg">
+            <h4 className="text-lg font-semibold">
               Contact
             </h4>
 
             <ul className="mt-4 space-y-2 text-blue-100">
-              <li>Hyderabad, Telangana</li>
-              <li>kangitensoftwares@gmail.com</li>
-              <li>6303450609</li>
+              <li>
+                Hyderabad, Telangana
+              </li>
+
+              <li>
+                <a href="mailto:kangitensoftware@gmail.com">
+                  kangitensoftware@gmail.com
+                </a>
+              </li>
+
+              <li>
+                <a href="tel:+918106092063">
+                  +91 81060 92063
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-lg">
+            <h4 className="text-lg font-semibold">
               Social
             </h4>
 
             <ul className="mt-4 space-y-2 text-blue-100">
-              <li>Instagram</li>
-              <li>LinkedIn</li>
-              <li>WhatsApp</li>
+
+              <li>
+                <a
+                  href="https://www.instagram.com/kangitensoftwares"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram
+                </a>
+              </li>
+
+              <li>
+                LinkedIn
+              </li>
+
+              <li>
+                <a
+                  href="https://wa.me/918106092063"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp
+                </a>
+              </li>
+
             </ul>
           </div>
 
         </div>
 
         <div className="mt-12 border-t border-blue-800 pt-6 text-center text-blue-200">
-          © {new Date().getFullYear()} Kangiten Softwares. All Rights Reserved.
+          © {new Date().getFullYear()} Kangiten Software. All Rights Reserved.
         </div>
 
       </div>

@@ -40,9 +40,12 @@ export default function Navbar() {
           </a>
         </div>
 
-        <button className="rounded-lg bg-blue-900 px-5 py-2 text-white hover:bg-blue-800">
+        <a
+          href="#contact"
+          className="rounded-lg bg-blue-900 px-5 py-2 text-white hover:bg-blue-800"
+        >
           Get a Quote
-        </button>
+        </a>
 
       </div>
     </nav>
