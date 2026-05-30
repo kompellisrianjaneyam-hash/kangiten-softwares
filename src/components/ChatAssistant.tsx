@@ -90,7 +90,7 @@ export default function ChatAssistant() {
       text.includes("cost") ||
       text.includes("quote")
     ) {
-      return "Pricing depends on your requirements. For a detailed quotation and free consultation, please contact us at +91 81060 92063, email kangitensoftware@gmail.com, or use the WhatsApp button on this website.";
+      return "Pricing depends on your requirements. Contact us through the Contact Form, WhatsApp or Phone for a free quotation.";
     }
 
     if (
@@ -98,7 +98,7 @@ export default function ChatAssistant() {
       text.includes("how long") ||
       text.includes("time")
     ) {
-      return "Most websites take 1–3 weeks. Larger applications and AI solutions may require additional time depending on complexity. Contact us for a project-specific timeline estimate.";
+      return "Most websites take 1–3 weeks. Larger applications and AI solutions may require additional time depending on complexity.";
     }
 
     if (
@@ -109,25 +109,25 @@ export default function ChatAssistant() {
     }
 
     if (text.includes("email")) {
-      return "Our email address is kangitensoftware@gmail.com. You can also reach us through WhatsApp or call +91 81060 92063.";
+      return "Our email address is kangitensoftware@gmail.com.";
     }
 
     if (text.includes("instagram")) {
-      return "Follow us on Instagram @kangitensoftwares. For project discussions we recommend contacting us through WhatsApp.";
+      return "Follow us on Instagram @kangitensoftwares.";
     }
 
     if (text.includes("whatsapp")) {
-      return "Use the WhatsApp button at the bottom-right corner of the website to chat directly with our team.";
+      return "Use the WhatsApp button at the bottom-right corner of the website.";
     }
 
     if (
       text.includes("location") ||
       text.includes("where are you")
     ) {
-      return "Kangiten Software is based in Hyderabad, Telangana, India. We work with clients remotely across different locations.";
+      return "Kangiten Software is based in Hyderabad, Telangana, India.";
     }
 
-    return "I'd be happy to help. For detailed discussions, pricing, project planning and a free consultation, please contact us through WhatsApp, call +91 81060 92063 or email kangitensoftware@gmail.com.";
+    return "Thank you for your message. Please use the Contact Form, WhatsApp button or call +91 81060 92063 for a detailed discussion.";
   };
 
   const sendMessage = () => {
@@ -154,8 +154,14 @@ export default function ChatAssistant() {
 
   return (
     <>
+      {!open && (
+        <div className="fixed bottom-44 right-6 z-50 max-w-[220px] rounded-2xl border bg-white px-4 py-3 text-sm font-medium text-gray-700 shadow-xl">
+          👋 Need help? Chat with us!
+        </div>
+      )}
+
       <button
-        onClick={() => setOpen(!open)}
+        onClick={() => setOpen(true)}
         className="fixed bottom-28 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-blue-900 text-2xl text-white shadow-xl hover:bg-blue-800"
       >
         🤖
@@ -164,10 +170,19 @@ export default function ChatAssistant() {
       {open && (
         <div className="fixed bottom-44 right-6 z-50 flex h-[500px] w-[350px] flex-col overflow-hidden rounded-3xl bg-white shadow-2xl">
 
-          <div className="bg-blue-900 p-4 text-white">
+          <div className="flex items-center justify-between bg-blue-900 p-4 text-white">
+
             <h3 className="font-semibold">
               Kangiten Assistant
             </h3>
+
+            <button
+              onClick={() => setOpen(false)}
+              className="text-xl font-bold hover:text-gray-300"
+            >
+              ✕
+            </button>
+
           </div>
 
           <div className="flex-1 space-y-3 overflow-y-auto p-4">
@@ -227,6 +242,11 @@ export default function ChatAssistant() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 className="flex-1 rounded-xl border border-gray-300 px-3 py-2 outline-none"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    sendMessage();
+                  }
+                }}
               />
 
               <button
