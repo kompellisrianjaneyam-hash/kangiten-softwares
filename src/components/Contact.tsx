@@ -40,11 +40,17 @@ export default function Contact() {
 
     if (error) {
       console.log("SUPABASE ERROR:", error);
-      alert(JSON.stringify(error));
+
+      alert(
+        "Sorry, something went wrong. Please contact us directly on WhatsApp at +91 81060 92063."
+      );
+
       return;
     }
 
-    alert("Inquiry submitted successfully!");
+    alert(
+      "Thank you for contacting Kangiten Softwares!\n\nYour inquiry has been received successfully.\n\nOur team will contact you shortly.\n\nWhatsApp: +91 81060 92063\nEmail: kangitensoftware@gmail.com"
+    );
 
     setFormData({
       name: "",
