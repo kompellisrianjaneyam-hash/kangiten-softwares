@@ -97,7 +97,13 @@ export default function Footer() {
               </li>
 
               <li>
-                LinkedIn
+                <a
+                  href="https://www.linkedin.com/in/kangiten-softwares-478010413/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
               </li>
 
               <li>
