@@ -13,44 +13,77 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kangiten Softwares | Websites, Apps, AI & Automation",
+  metadataBase: new URL("https://kangitensoftwares.in"),
+
+  title: {
+    default: "Kangiten Softwares",
+    template: "%s | Kangiten Softwares",
+  },
 
   description:
-    "Kangiten Softwares helps businesses grow through website development, mobile app development, AI chatbots, voice agents, automation, social media management and graphic design.",
+    "Kangiten Softwares provides website development, mobile app development, AI chatbots, automation solutions, social media management, graphic design, and custom software development for businesses worldwide.",
 
   keywords: [
+    "Kangiten Softwares",
     "Website Development",
+    "Web Development Company",
     "Mobile App Development",
+    "Custom Software Development",
     "AI Chatbots",
     "Voice Agents",
-    "Automation",
+    "Business Automation",
     "Graphic Design",
     "Social Media Management",
+    "Software Company India",
     "Software Company Hyderabad",
-    "Kangiten Softwares",
+    "Web Design Services",
+    "Digital Solutions",
   ],
 
   authors: [
     {
       name: "Kangiten Softwares",
+      url: "https://kangitensoftwares.in",
     },
   ],
 
   creator: "Kangiten Softwares",
+  publisher: "Kangiten Softwares",
+
+  alternates: {
+    canonical: "https://kangitensoftwares.in",
+  },
 
   openGraph: {
     title: "Kangiten Softwares",
     description:
-      "Websites, Mobile Apps, AI Solutions, Automation and Digital Growth Services.",
+      "Website Development, Mobile Apps, AI Solutions, Automation, Graphic Design and Digital Growth Services.",
+    url: "https://kangitensoftwares.in",
     siteName: "Kangiten Softwares",
     locale: "en_US",
     type: "website",
   },
 
+  twitter: {
+    card: "summary_large_image",
+    title: "Kangiten Softwares",
+    description:
+      "Website Development, Mobile Apps, AI Solutions and Business Automation.",
+  },
+
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
+
+  category: "Technology",
 };
 
 export default function RootLayout({
