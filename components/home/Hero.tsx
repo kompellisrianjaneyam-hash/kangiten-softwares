@@ -1,245 +1,207 @@
 
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-
-const services = [
-  {
-    title: "💻 Website Development",
-    href: "/services/website-development",
-  },
-  {
-    title: "📱 Mobile App Development",
-    href: "/services/mobile-app-development",
-  },
-  {
-    title: "🤖 AI Automation",
-    href: "/services/ai-automation",
-  },
-  {
-    title: "🎙 AI Voice Agents",
-    href: "/services/ai-voice-agents",
-  },
-  {
-    title: "⚙ Business Automation",
-    href: "/solutions/business-automation",
-  },
-  {
-    title: "🎨 Graphic Design",
-    href: "/services/graphic-design",
-  },
-  {
-    title: "📢 Social Media Management",
-    href: "/services/social-media-management",
-  },
-  {
-    title: "📈 Digital Growth",
-    href: "/solutions",
-  },
-];
-
-function ServiceCard({
-  title,
-  href,
-}: {
-  title: string;
-  href: string;
-}) {
-  return (
-    <Link href={href}>
-      <motion.div
-        whileHover={{
-          scale: 1.05,
-          y: -6,
-        }}
-        animate={{
-          y: [0, -8, 0],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-        }}
-        className="
-        bg-white/90
-        backdrop-blur-xl
-        rounded-3xl
-        px-5
-        py-4
-        border
-        border-blue-100
-        shadow-[0_15px_40px_rgba(0,90,156,0.12)]
-        font-semibold
-        text-[#003F73]
-        text-center
-        cursor-pointer
-        "
-      >
-        {title}
-      </motion.div>
-    </Link>
-  );
-}
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white">
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-50 via-white to-white" />
+    <section className="relative overflow-hidden bg-white min-h-[90vh] flex items-center">
 
-      <div className="absolute top-20 left-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-40" />
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-30" />
+      {/* Background */}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-20">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F7FBFF] via-white to-white" />
 
-        <div className="text-center mb-16">
-          <p className="text-[#005A9C] font-bold tracking-[0.3em] mb-6">
-            BUILD • AUTOMATE • GROW
-          </p>
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#7EC8FF]/30 rounded-full blur-[140px]" />
 
-          <h1 className="text-4xl sm:text-5xl md:text-8xl font-black leading-none text-[#003F73]">
-            WE BUILD.
-            <br />
-            WE AUTOMATE.
-            <br />
-            <span className="text-[#005A9C]">
-              YOU GROW.
-            </span>
-          </h1>
-        </div>
+      <div className="absolute top-20 right-0 w-[450px] h-[450px] bg-[#7EC8FF]/20 rounded-full blur-[140px]" />
 
-        {/* Mobile Layout */}
+      {/* Grid Pattern */}
 
-        <div className="block md:hidden">
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(#005A9C 1px, transparent 1px), linear-gradient(to right, #005A9C 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
+          }}
+        />
+      </div>
 
-          <motion.div
-            animate={{
-              y: [0, -10, 0],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-            }}
-            className="flex justify-center mb-12"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 bg-[#7EC8FF] blur-3xl opacity-30 rounded-full scale-125" />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
 
-              <div
-                className="
-                relative
-                bg-white
-                rounded-full
-                p-4
-                shadow-[0_30px_80px_rgba(0,90,156,0.2)]
-                "
-              >
-                <img
-                  src="/logo.png"
-                  alt="Kangiten Logo"
-                  className="w-[180px] h-auto"
-                />
-              </div>
-            </div>
-          </motion.div>
+        {/* Badge */}
 
-          <div className="grid gap-4">
-            {services.map((service) => (
-              <ServiceCard
-                key={service.title}
-                title={service.title}
-                href={service.href}
-              />
-            ))}
-          </div>
-
-        </div>
-
-        {/* Desktop Layout */}
-
-        <div className="hidden md:block relative h-[900px]">
-
-          <svg
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            viewBox="0 0 1200 900"
-          >
-            <line x1="600" y1="450" x2="250" y2="190" stroke="#005A9C" strokeWidth="2" opacity="0.15" />
-            <line x1="600" y1="450" x2="900" y2="120" stroke="#005A9C" strokeWidth="2" opacity="0.15" />
-            <line x1="600" y1="450" x2="1080" y2="180" stroke="#005A9C" strokeWidth="2" opacity="0.15" />
-            <line x1="600" y1="450" x2="1040" y2="500" stroke="#005A9C" strokeWidth="2" opacity="0.15" />
-            <line x1="600" y1="450" x2="930" y2="690" stroke="#005A9C" strokeWidth="2" opacity="0.15" />
-            <line x1="600" y1="450" x2="640" y2="760" stroke="#005A9C" strokeWidth="2" opacity="0.15" />
-            <line x1="600" y1="450" x2="320" y2="760" stroke="#005A9C" strokeWidth="2" opacity="0.15" />
-            <line x1="600" y1="450" x2="150" y2="560" stroke="#005A9C" strokeWidth="2" opacity="0.15" />
-          </svg>
-
-          <div className="absolute top-[18%] left-[10%]">
-            <ServiceCard title="💻 Website Development" href="/services/website-development" />
-          </div>
-
-          <div className="absolute top-[8%] right-[18%]">
-            <ServiceCard title="📱 Mobile App Development" href="/services/mobile-app-development" />
-          </div>
-
-          <div className="absolute top-[20%] right-[5%]">
-            <ServiceCard title="🤖 AI Automation" href="/services/ai-automation" />
-          </div>
-
-          <div className="absolute top-[55%] right-[10%]">
-            <ServiceCard title="🎙 AI Voice Agents" href="/services/ai-voice-agents" />
-          </div>
-
-          <div className="absolute bottom-[16%] right-[12%]">
-            <ServiceCard title="⚙ Business Automation" href="/solutions/business-automation" />
-          </div>
-
-          <div className="absolute bottom-[10%] left-[12%]">
-            <ServiceCard title="🎨 Graphic Design" href="/services/graphic-design" />
-          </div>
-
-          <div className="absolute top-[58%] left-[5%]">
-            <ServiceCard title="📢 Social Media Management" href="/services/social-media-management" />
-          </div>
-
-          <div className="absolute bottom-[12%] left-[42%]">
-            <ServiceCard title="📈 Digital Growth" href="/solutions" />
-          </div>
-
-          <motion.div
-            animate={{
-              y: [0, -15, 0],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-            }}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center"
+        >
+          <div
             className="
-            absolute
-            left-1/2
-            top-1/2
-            -translate-x-1/2
-            -translate-y-1/2
+            px-5
+            py-2
+            rounded-full
+            border
+            border-[#7EC8FF]
+            bg-white/80
+            backdrop-blur-xl
+            text-[#005A9C]
+            font-semibold
+            text-sm
             "
           >
-            <div className="absolute inset-0 bg-[#7EC8FF] blur-3xl opacity-30 rounded-full scale-125" />
+            BUILD • AUTOMATE • GROW
+          </div>
+        </motion.div>
 
-            <div
-              className="
-              relative
-              bg-white
-              rounded-full
-              p-8
-              shadow-[0_30px_80px_rgba(0,90,156,0.25)]
-              "
-            >
-              <img
-                src="/logo.png"
-                alt="Kangiten Logo"
-                className="w-[320px] h-auto"
-              />
-            </div>
-          </motion.div>
+        {/* Main Heading */}
 
-        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="text-center mt-10"
+        >
+          <h1
+            className="
+            text-5xl
+            sm:text-6xl
+            lg:text-8xl
+            font-black
+            leading-[0.95]
+            text-[#003F73]
+            "
+          >
+            Premium Digital
+            <br />
+
+            <span className="text-[#005A9C]">
+              Solutions For
+            </span>
+
+            <br />
+
+            Modern Businesses
+          </h1>
+
+          <p
+            className="
+            max-w-3xl
+            mx-auto
+            mt-8
+            text-lg
+            md:text-2xl
+            text-slate-600
+            "
+          >
+            We build premium websites, mobile applications,
+            AI automation systems and custom software solutions
+            that help businesses scale faster.
+          </p>
+        </motion.div>
+
+        {/* CTA Buttons */}
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="
+          flex
+          flex-col
+          sm:flex-row
+          gap-4
+          justify-center
+          mt-12
+          "
+        >
+          <Link
+            href="/contact"
+            className="
+            bg-[#005A9C]
+            text-white
+            px-8
+            py-4
+            rounded-2xl
+            font-semibold
+            text-center
+            shadow-lg
+            hover:scale-105
+            transition-all
+            "
+          >
+            Book Free Consultation
+          </Link>
+
+          <Link
+            href="/services"
+            className="
+            border
+            border-[#005A9C]
+            text-[#005A9C]
+            px-8
+            py-4
+            rounded-2xl
+            font-semibold
+            text-center
+            hover:bg-blue-50
+            transition-all
+            "
+          >
+            Explore Services
+          </Link>
+        </motion.div>
+
+        {/* Trust Statement */}
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="mt-20 text-center"
+        >
+          <div
+            className="
+            inline-flex
+            flex-wrap
+            justify-center
+            gap-3
+            px-6
+            py-4
+            rounded-2xl
+            bg-white/80
+            backdrop-blur-xl
+            border
+            border-blue-100
+            shadow-[0_15px_40px_rgba(0,90,156,0.08)]
+            "
+          >
+            <span className="text-[#003F73] font-semibold">
+              Websites
+            </span>
+
+            <span className="text-[#7EC8FF]">•</span>
+
+            <span className="text-[#003F73] font-semibold">
+              Mobile Apps
+            </span>
+
+            <span className="text-[#7EC8FF]">•</span>
+
+            <span className="text-[#003F73] font-semibold">
+              AI Automation
+            </span>
+
+            <span className="text-[#7EC8FF]">•</span>
+
+            <span className="text-[#003F73] font-semibold">
+              Custom Software
+            </span>
+          </div>
+        </motion.div>
 
       </div>
     </section>
