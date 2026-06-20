@@ -3,12 +3,15 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 
 export default function BrandRevealV2() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    const isDesktop = window.innerWidth >= 1024;
+
+    if (!isDesktop) return;
+
     const seen = sessionStorage.getItem("kangiten_intro");
 
     if (!seen) {
@@ -17,7 +20,7 @@ export default function BrandRevealV2() {
       const timer = setTimeout(() => {
         sessionStorage.setItem("kangiten_intro", "true");
         setShow(false);
-      }, 4500);
+      }, 3200);
 
       return () => clearTimeout(timer);
     }
@@ -30,210 +33,138 @@ export default function BrandRevealV2() {
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            scale: 1.05,
             transition: {
-              duration: 1,
+              duration: 0.8,
             },
           }}
           className="
           fixed
           inset-0
           z-[99999]
-          overflow-hidden
+          bg-white
           flex
           items-center
           justify-center
-          bg-gradient-to-br
-          from-white
-          via-[#F8FCFF]
-          to-[#EAF7FF]
+          overflow-hidden
           "
         >
-          {/* Background Glow */}
+          {/* Glow */}
 
           <motion.div
             animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.25, 0.7, 0.25],
+              scale: [1, 1.25, 1],
+              opacity: [0.2, 0.5, 0.2],
             }}
             transition={{
-              duration: 4,
+              duration: 3,
               repeat: Infinity,
             }}
             className="
             absolute
-            w-[900px]
-            h-[900px]
+            w-[500px]
+            h-[500px]
             rounded-full
             bg-[#7EC8FF]
-            blur-[180px]
-            "
-          />
-
-          {/* Outer Ring */}
-
-          <motion.div
-            animate={{
-              rotate: 360,
-            }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            className="
-            absolute
-            w-[340px]
-            h-[340px]
-            rounded-full
-            border
-            border-[#005A9C]/20
-            "
-          />
-
-          {/* Inner Ring */}
-
-          <motion.div
-            animate={{
-              rotate: -360,
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            className="
-            absolute
-            w-[280px]
-            h-[280px]
-            rounded-full
-            border
-            border-[#7EC8FF]/40
+            blur-[120px]
             "
           />
 
           {/* Logo */}
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              scale: 0.6,
-              y: 40,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 1.2,
-            }}
-            className="relative z-20"
-          >
+          <div className="relative flex flex-col items-center">
+
             <motion.div
+              initial={{
+                opacity: 0,
+                scale: 0.6,
+              }}
               animate={{
-                y: [-10, 10, -10],
-                rotateY: [-5, 5, -5],
+                opacity: 1,
+                scale: 1,
               }}
               transition={{
-                duration: 5,
-                repeat: Infinity,
+                duration: 1,
               }}
               className="relative"
             >
+              {/* K */}
+
               <div
                 className="
-                absolute
-                inset-0
-                bg-[#7EC8FF]
-                blur-[100px]
-                opacity-60
-                scale-110
+                relative
+                text-[140px]
+                font-black
+                text-[#005A9C]
+                leading-none
                 "
-              />
+              >
+                K
 
-              <Image
-                src="/logo.png"
-                alt="Kangiten Softwares"
-                width={260}
-                height={260}
-                priority
-                className="relative z-10"
-              />
+                <motion.div
+                  initial={{
+                    scale: 0,
+                  }}
+                  animate={{
+                    scale: 1,
+                  }}
+                  transition={{
+                    delay: 0.6,
+                    duration: 0.5,
+                  }}
+                  className="
+                  absolute
+                  top-3
+                  right-[-10px]
+                  text-[50px]
+                  text-[#005A9C]
+                  "
+                >
+                  ↗️
+                </motion.div>
+              </div>
             </motion.div>
-          </motion.div>
 
-          {/* Text */}
+            {/* Brand Name */}
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              delay: 0.5,
-              duration: 1,
-            }}
-            className="
-            absolute
-            bottom-28
-            text-center
-            "
-          >
-            <h1
-              className="
-              text-5xl
-              md:text-7xl
-              font-black
-              tracking-widest
-              text-[#005A9C]
-              "
-            >
-              KANGITEN
-            </h1>
-
-            <p
-              className="
-              mt-3
-              text-[#005A9C]
-              tracking-[0.5em]
-              font-semibold
-              "
-            >
-              SOFTWARES
-            </p>
-          </motion.div>
-
-          {/* Particles */}
-
-          {Array.from({ length: 40 }).map((_, i) => (
             <motion.div
-              key={i}
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
               animate={{
-                y: [0, -80, 0],
-                opacity: [0.2, 1, 0.2],
+                opacity: 1,
+                y: 0,
               }}
               transition={{
-                duration: 4 + (i % 4),
-                repeat: Infinity,
+                delay: 0.8,
+                duration: 0.8,
               }}
-              className="
-              absolute
-              w-2
-              h-2
-              rounded-full
-              bg-[#7EC8FF]
-              "
-              style={{
-                left: `${(i * 13) % 100}%`,
-                top: `${(i * 17) % 100}%`,
-              }}
-            />
-          ))}
+              className="text-center mt-4"
+            >
+              <h1
+                className="
+                text-5xl
+                font-black
+                tracking-widest
+                text-[#005A9C]
+                "
+              >
+                KANGITEN
+              </h1>
+
+              <p
+                className="
+                mt-2
+                text-[#005A9C]
+                tracking-[0.5em]
+                text-sm
+                font-semibold
+                "
+              >
+                SOFTWARES
+              </p>
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
