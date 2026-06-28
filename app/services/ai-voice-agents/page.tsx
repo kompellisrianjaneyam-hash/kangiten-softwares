@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-
+import VoiceROICalculator from "@/components/voice/VoiceROICalculator";
 export default function AIVoiceAgentsPage() {
   return (
     <main className="bg-white overflow-hidden min-h-screen">
@@ -167,9 +167,9 @@ export default function AIVoiceAgentsPage() {
             </motion.div>
 
           </div>
-
+        <VoiceROICalculator />
           <div className="text-center">
-
+          
             <Link
               href="/contact"
               className="
