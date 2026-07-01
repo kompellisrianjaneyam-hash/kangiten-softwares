@@ -55,19 +55,19 @@ type ResultCardProps = {
 const pricingPlans: PricingPlan[] = [
   {
     name: "Starter",
-    price: 7,
+    price: 6,
     range: "0-5,000 minutes",
     description: "Built for lean teams starting with AI voice automation.",
   },
   {
     name: "Growth",
-    price: 6,
+    price: 5.25,
     range: "5,001-25,000 minutes",
     description: "For growing businesses handling steady call volume.",
   },
   {
     name: "Business",
-    price: 5.25,
+    price: 4.75,
     range: "25,001-100,000 minutes",
     description: "Optimized pricing for high-volume customer operations.",
   },
@@ -361,16 +361,16 @@ export default function VoiceROICalculator() {
   const calculator: CalculatorValues = useMemo(() => {
     const totalMinutes = monthlyCalls * avgDuration;
 
-    let pricePerMinute = 7;
+    let pricePerMinute = 6;
     let recommendedPlan: PricingPlanName = "Starter";
 
     if (totalMinutes > 5000 && totalMinutes <= 25000) {
-      pricePerMinute = 6;
+      pricePerMinute = 5.25;
       recommendedPlan = "Growth";
     }
 
     if (totalMinutes > 25000) {
-      pricePerMinute = 5.25;
+      pricePerMinute = 4.75;
       recommendedPlan = "Business";
     }
 
